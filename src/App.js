@@ -68,7 +68,7 @@ function App() {
                           onScan={handleScanFile}
                           legacyMode
                         />
-                        <h3>Scanned Code: {scanResultFile}</h3>
+                        <h3>Scanned Code: {scanResultFile} </h3>
                       </Grid>
                       <Grid item xl={4} lg={4} md={6} sm={12} xs={12}>
                          <h3>Qr Code Scan by Web Cam</h3>
