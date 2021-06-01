@@ -1,0 +1,18 @@
+div .About-menu {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width:inherit;
+    height: inherit;
+}
+
+.About-menu .App-btn {
+    width:10rem;
+    height:4rem;
+    margin:0.5rem;
+}
+
+.About-menu {
+    background-color: white;
+}

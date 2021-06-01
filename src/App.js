@@ -1,33 +1,23 @@
-import React, { Component } from 'react'
-import QrReader from 'react-qr-reader'
-class App extends Component {
-  state = {
-    result: 'No result'
-  }
- 
-  handleScan = data => {
-    if (data) {
-      this.setState({
-        result: data
-      })
-    }
-  }
-  handleError = err => {
-    console.error(err)
-  }
-  render() {
-    return (
-      <div>
-        <QrReader
-          delay={300}
-          onError={this.handleError}
-          onScan={this.handleScan}
-          style={{ width: '100%' }}
-        />
-        <p>{this.state.result}</p>
-      </div>
-    )
-  }
+import React from 'react'
+import { Fragment } from 'react';
+import Button from '@material-ui/core/Button';
+import { useHistory } from "react-router-dom";
+// CSS
+import "./App.css"
+
+// Assets
+import logo from './logo.svg';
+
+function App() {
+
+  const history = useHistory();
+  return (
+    <Fragment>
+      <img onClick={() => history.push('/')} src={logo} className="App-logo" alt="logo" />
+      <Button className="App-btn App-btn-lng">MNE</Button>
+    </Fragment>
+  )
 }
+
 
 export default App
