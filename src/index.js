@@ -2,7 +2,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import reportWebVitals from './reportWebVitals';
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route, Redirect } from "react-router-dom";
 
 // Custom components
 import About from "./components/About";
@@ -22,6 +22,9 @@ ReactDOM.render(
       <Route path="/about/" exact component={About} />
       <Route path="/qrcode/" exact component={QRCodeReader} />
       <Route path="/details/" exact component={Details} />
+      <Route exact path="*">
+        <Redirect to="/" />
+      </Route>
     </Switch>
   </Router>,
   document.getElementById('root')

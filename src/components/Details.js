@@ -17,7 +17,9 @@ function Details() {
 
             const response = await fetch(url);
             const json = await response.json();
-            const id = parseInt(location.state.detail);
+            // To get ID 
+            const details = location.state.detail.split("/")
+            const id = parseInt(details[details.length - 1]);
             // ovo ce da se mijenja kad se povezemo sa bazom 
             for (const product of json.data) {
                 if (product["id"] == id) {
@@ -36,7 +38,6 @@ function Details() {
         }
 
     }, []);
-    console.log(data);
     return (
         <React.Fragment>
             <div className="QRCode-menu">
