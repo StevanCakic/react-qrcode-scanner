@@ -17,21 +17,13 @@ function Details() {
 
             const response = await fetch(url);
             const json = await response.json();
-            // To get ID 
-            const details = location.state.detail.split("/")
-            const id = parseInt(details[details.length - 1]);
-            // ovo ce da se mijenja kad se povezemo sa bazom 
-            for (const product of json.data) {
-                if (product["id"] == id) {
-                    setData(product)
-                    break;
-                }
-            }
+            console.log(json);
+            setData(json[0])
 
         }
         try {
-
-            fetchData("https://jsonblob.com/api/jsonBlob/835dcbea-c2ea-11eb-8480-0309ea41fc0b")
+            console.log(location.state.detail)
+            fetchData(location.state.detail)
 
         } catch (error) {
             console.log(error)
@@ -41,9 +33,9 @@ function Details() {
     return (
         <React.Fragment>
             <div className="QRCode-menu">
-                <Button className="App-btn">Proizvedeno: {Object.keys(data).length > 0 ? data["godina_proizvodnje"]: "Nije pronadjeno"}</Button>
-                <Button className="App-btn">Proizvodjac: {Object.keys(data).length > 0 ? data["mjesto_proizvodnje"]: "Nije pronadjeno"}</Button>
-                <Button className="App-btn">Rok upotrebe: {Object.keys(data).length > 0 ? data["rok_upotrebe"]: "Nije pronadjeno"}</Button>
+                <Button className="App-btn">Naziv kompanije: {Object.keys(data).length > 0 ? data["cname"] : "Nije pronadjeno"}</Button>
+                <Button className="App-btn">Naziv artikla: {Object.keys(data).length > 0 ? data["name"] : "Nije pronadjeno"}</Button>
+                <Button className="App-btn">Tip proizvoda: {Object.keys(data).length > 0 ? data["type"] : "Nije pronadjeno"}</Button>
             </div>
         </React.Fragment>
 

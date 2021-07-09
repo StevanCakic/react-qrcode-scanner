@@ -19,6 +19,7 @@ function QRCodeReader() {
     function helper() { }
 
     function handleScan(data) {
+        console.log(data);
         if (data) {
             history.push({ pathname: '/details/', state: { detail: data } })
         }
