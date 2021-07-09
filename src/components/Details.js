@@ -14,15 +14,15 @@ function Details() {
     useEffect(() => {
 
         async function fetchData(url) {
-
-            const response = await fetch(url);
+            const splittedUrl = url.split("/");
+            const cid = splittedUrl[splittedUrl.length - 3];
+            const aid = splittedUrl[splittedUrl.length - 2];
+            const lid = splittedUrl[splittedUrl.length - 1];
+            const response = await fetch(`https://prsutari.herokuapp.com/qrcode/${cid}/${aid}/${lid}`);
             const json = await response.json();
-            console.log(json);
-            setData(json[0])
-
+            setData(json[0]);
         }
         try {
-            console.log(location.state.detail)
             fetchData(location.state.detail)
 
         } catch (error) {
