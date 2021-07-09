@@ -18,7 +18,7 @@ function Details() {
             const cid = splittedUrl[splittedUrl.length - 3];
             const aid = splittedUrl[splittedUrl.length - 2];
             const lid = splittedUrl[splittedUrl.length - 1];
-            const response = await fetch(`https://prsutari.herokuapp.com/qrcode/${cid}/${aid}/${lid}`);
+            const response = await fetch(`https://prsutari-api.herokuapp.com/qrcode/${cid}/${aid}/${lid}`);
             const json = await response.json();
             setData(json[0]);
         }
